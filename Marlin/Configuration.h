@@ -103,13 +103,16 @@
  *
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT 2
+//#define SERIAL_PORT 2 //From SKR Guide
+#define SERIAL_PORT -1 //from: https://www.reddit.com/r/octoprint/comments/k7t6pr/octoprint_octopi_printing_warts_ender_5_wbltouch/
+
 
 /**
  * Select a secondary serial port on the board to use for communication with the host.
  * :[-1, 0, 1, 2, 3, 4, 5, 6, 7]
  */
-#define SERIAL_PORT_2 -1
+//#define SERIAL_PORT_2 -1 //From SKR Guide
+#define SERIAL_PORT_2 2 //From: https://www.reddit.com/r/octoprint/comments/k7t6pr/octoprint_octopi_printing_warts_ender_5_wbltouch/
 
 /**
  * This setting determines the communication speed of the printer.
@@ -986,7 +989,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -58, -18, -1.68 }
+#define NOZZLE_TO_PROBE_OFFSET { -58, -18, -1.8 }
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -2294,6 +2297,8 @@
 // Use software PWM to drive the fan, as for the heaters. This uses a very low frequency
 // which is not as annoying as with the hardware PWM. On the other hand, if this frequency
 // is too low, you should also increment SOFT_PWM_SCALE.
+//
+//BGFINDME: potentially turn this off to make fan0 controllable
 #define FAN_SOFT_PWM
 
 // Incrementing this by 1 will double the software PWM frequency,
